@@ -1,3 +1,4 @@
+
 /*
  ******************************************************************************
  *Neopixel Multi-Ring Trial by djcrawford
@@ -17,6 +18,7 @@
 #define PWM_PIN    6     //Sets borad PWM pin for data
 
  int PixNode = 12;        //Total pix per node
+ 
  int TotalNodes;          //Total number of nodes in string
  int TotalPix;            //Total number of pix in the system
  int brightness;          //Sets initial brightness of each node from 1 (min) to 255 (max)
@@ -55,9 +57,7 @@ void RunOnce( ){
       }
       Serial.flush();
   }
-
- 
-    
+   
   TotalPix = (TotalNodes*PixNode);  //Total out the number of pixels
   Serial.print("Your total pixel count is: "); //Prints string to display
   Serial.println(TotalPix);  // Displays the total pixels on the string
@@ -77,10 +77,8 @@ void RunOnce( ){
       }
    
   else {                                                    //If not a valid brightness input
-    Serial.print("Brightness = ");Serial.print(brightness);
     Serial.println("Please select a brightness from 1 to 255");   //Tells user to input the correct number
     Serial.println("Starting over");    //Notifies user that they will be starting over
-    delay (1000);
     RunOnce();
     }
   Serial.flush();
